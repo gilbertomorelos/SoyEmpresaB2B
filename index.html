@@ -291,26 +291,130 @@
     footer a:hover {text-decoration:underline;}
     .copyright {text-align:center; background:#111; color:#ccc; font-size:0.85rem; padding:12px;}
 
-    /* ====== RESPONSIVE ====== */
-    @media(max-width:1024px){
-      .cards-container, .beneficios-container {gap:15px; justify-content:center;}
-      .card, .beneficio-card, .card-compradores {width:220px; height:220px;}
-    }
-    @media(max-width:768px){
-      header {padding:15px 20px; flex-direction:column; align-items:flex-start;}
-      header h1 {margin-bottom:10px;}
-      nav a {margin:5px 10px;}
-      .hero h2 {font-size:2rem;}
-      .card, .beneficio-card, .card-compradores {width:180px; height:180px;}
-      .plan {width:90%; margin:15px auto;}
-    }
-    @media(max-width:480px){
-      .hero h2 {font-size:1.5rem;}
-      .hero p {font-size:1rem;}
-      .card, .beneficio-card, .card-compradores {width:150px; height:150px;}
-      .plan {width:95%; padding:20px;}
-      .blog-post {padding:15px;}
-    }
+
+
+ /* ====== RESPONSIVE ====== */
+
+/* --- Tablets grandes y laptops pequeñas --- */
+@media (max-width: 1024px) {
+  .cards-container,
+  .beneficios-container {
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card,
+  .beneficio-card,
+  .card-compradores {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero h2 {
+    font-size: 2.3rem;
+  }
+}
+
+/* --- Tablets y pantallas medianas --- */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  header h1 {
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a {
+    margin: 5px 10px;
+    font-size: 1rem;
+  }
+
+  .hero {
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .card,
+  .beneficio-card,
+  .card-compradores {
+    width: 180px;
+    height: 180px;
+  }
+
+  .plan {
+    width: 90%;
+    margin: 15px auto;
+  }
+
+  .blog-post {
+    padding: 20px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+  }
+}
+
+/* --- Celulares pequeños --- */
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .card,
+  .beneficio-card,
+  .card-compradores {
+    width: 150px;
+    height: 150px;
+  }
+
+  .plan {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .blog-post {
+    padding: 15px;
+  }
+
+  .whatsapp-btn {
+    bottom: 15px;
+    right: 15px;
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
 
  .beneficio-card button,
 .card-compradores-front button {
