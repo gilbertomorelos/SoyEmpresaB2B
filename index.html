@@ -21,27 +21,137 @@
     body {font-family: 'Poppins', sans-serif; background:#f4f4f4; color:#333; line-height:1.5;}
     a {text-decoration:none; color:inherit;}
 
-    /* ====== HEADER ====== */
-    header {
-      background:#1f1f1f;
-      color:#fff;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:15px 50px;
-      position:sticky;
-      top:0;
-      z-index:1000;
-      box-shadow:0 2px 8px rgba(0,0,0,0.3);
-      flex-wrap: wrap;
-    }
-    header h1 {font-size:1.5rem; font-weight:700; margin-bottom: 10px;}
-    nav {display:flex; flex-wrap: wrap; align-items:center; gap:10px;}
-    nav a {margin:5px 10px; font-weight:500; transition:color 0.3s;}
-    nav a:hover {color:#ff7b00;}
-    header .cta-header {background:#ff7b00; padding:10px 20px; border-radius:6px; font-weight:600; transition:background 0.3s;}
-    header .cta-header:hover {background:#ff9800;}
-    .search-bar {margin-left:15px; padding:5px 10px; border-radius:6px; border:none; font-size:0.9rem;}
+/* ====== HEADER ====== */
+header {
+  background: #1f1f1f;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white; /* ✅ Corregido */
+}
+
+/* ====== NAV ====== */
+nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff; /* ✅ Blanco sobre fondo oscuro */
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ff7b00;
+}
+
+.cta-header {
+  background: #ff7b00;
+  color: #fff !important;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ====== SEARCH BAR ====== */
+.search-bar {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-left: auto; /* empuja hacia la derecha */
+  margin-top: 20px; /* Ajusta este valor según necesites */
+
+
+}
+
+.search-bar input {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-bar button {
+  background: #ff7b00;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+/* ====== MENÚ HAMBURGUESA ====== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 2001; /* ✅ Se asegura de estar por encima del menú */
+}
+
+.menu-toggle div {
+  width: 25px;
+  height: 3px;
+  background: white; /* ✅ Corregido */
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 100px 20px 20px;
+    gap: 15px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
+    transition: right 0.3s ease-in-out;
+  }
+
+  nav.show {
+    right: 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .search-bar {
+    display: none;
+  }
+
+  .cta-header {
+    display: none;
+  }
+
+  nav a {
+    color: #333; /* ✅ En móvil el fondo es blanco, texto oscuro */
+  }
+}
 
     /* ====== HERO ====== */
     .hero {
@@ -405,31 +515,34 @@
 
 
 
-
-
 </style>
 </head>
 
-  <!-- Seccion Header -->
-<body>
+<!-- ====== HEADER ====== -->
 <header>
-  <h1>Promoción & Contacto Industrial</h1>
-  <nav>
+  <h1 class="logo">Promoción & Contacto Industrial</h1>
+
+  <div class="menu-toggle" id="nav-toggle">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <nav id="nav-menu">
     <a href="index.html">Inicio</a>
     <a href="empresas.html">Directorio</a>
     <a href="hub.html">Hub de Networking 🤝</a>
     <a href="blog_empresas.html">Blog</a>
     <a href="planes.html">Planes</a>
     <a href="contacto.html">Contacto</a>
-
-    <!-- Barra de búsqueda en el header -->
-<div class="search-bar">
-  <input type="text" placeholder="Buscar empresas, productos o servicios..." />
-  <button onclick="realizarBusqueda()">Buscar</button>
-</div>
-
   </nav>
-<a class="cta-header" href="contacto.html">Quiero Anunciarme</a>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Buscar empresas, productos o servicios..." />
+    <button onclick="realizarBusqueda()">Buscar</button>
+  </div>
+
+  <a class="cta-header" href="contacto.html">Quiero Anunciarme</a>
 </header>
 
   <!-- Hero Section -->
@@ -707,6 +820,42 @@ function realizarBusqueda() {
     `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`
   );
 }
+</script>
+
+
+  <!-- ====== SCRIPT ====== -->
+  <script>
+  // ==== Función de búsqueda ====
+  function realizarBusqueda() {
+    const input = document.querySelector('.search-bar input');
+    const query = input.value.trim();
+
+    if (!query) {
+      alert("Por favor escribe algo para buscar.");
+      return;
+    }
+
+    const width = 900;
+    const height = 700;
+    const left = (screen.width / 2) - (width / 2);
+    const top = (screen.height / 2) - (height / 2);
+
+    window.open(
+      `buscar.html?q=${encodeURIComponent(query)}`,
+      'ResultadosB2B',
+      `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`
+    );
+  }
+
+  // ==== Menú hamburguesa ====
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('nav-menu');
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('show');
+    });
+  });
 </script>
 
 
