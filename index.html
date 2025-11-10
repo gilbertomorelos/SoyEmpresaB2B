@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promoción & Contacto Industrial - Conecta Empresas B2B México</title>
+  <meta name="description" content="Promoción & Contacto Industrial conecta empresas del sector industrial mexicano. Busca proveedores, compradores y oportunidades B2B.">
+  <meta name="keywords" content="Industria, B2B, Proveedores, Compradores, México, Negocios, Marketing Industrial">
+  <meta name="author" content="Promoción & Contacto Industrial">
+  <meta property="og:title" content="Promoción & Contacto Industrial - Conecta Empresas B2B México">
+  <meta property="og:description" content="Conecta empresas industriales mexicanas, encuentra proveedores y compradores, impulsa tu negocio B2B.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.loscontactosdemama.com.mx">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1581090700227-1b6eeb62ce5b?auto=format&fit=crop&w=1470&q=80">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ====== RESET ====== */
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {font-family: 'Poppins', sans-serif; background:#f4f4f4; color:#333; line-height:1.5;}
+    a {text-decoration:none; color:inherit;}
+
+    /* ====== HEADER ====== */
+    header {
+      background:#1f1f1f;
+      color:#fff;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 50px;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:0 2px 8px rgba(0,0,0,0.3);
+      flex-wrap: wrap;
+    }
+    header h1 {font-size:1.5rem; font-weight:700; margin-bottom: 10px;}
+    nav {display:flex; flex-wrap: wrap; align-items:center; gap:10px;}
+    nav a {margin:5px 10px; font-weight:500; transition:color 0.3s;}
+    nav a:hover {color:#ff7b00;}
+    header .cta-header {background:#ff7b00; padding:10px 20px; border-radius:6px; font-weight:600; transition:background 0.3s;}
+    header .cta-header:hover {background:#ff9800;}
+    .search-bar {margin-left:15px; padding:5px 10px; border-radius:6px; border:none; font-size:0.9rem;}
+
+    /* ====== HERO ====== */
+    .hero {
+      position:relative;
+      background: url('https://images.unsplash.com/photo-1581090700227-1b6eeb62ce5b?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+      color:#fff;
+      text-align:center;
+      padding:120px 20px;
+    }
+    .hero::before {
+      content:'';
+      position:absolute;
+      top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.55);
+      z-index:0;
+    }
+    .hero-content {position:relative; z-index:1; max-width:900px; margin:0 auto;}
+    .hero h2 {font-size:2.5rem; margin-bottom:15px; font-weight:700;}
+    .hero p {font-size:1.2rem; margin-bottom:25px;}
+    .hero button {background:#ff7b00; color:#fff; border:none; padding:15px 30px; font-size:1rem; border-radius:8px; cursor:pointer; transition:background 0.3s;}
+    .hero button:hover {background:#ff9800;}
+
+    /* ====== SECCIÓN INDUSTRIAS ====== */
+    .cards-container {
+      display:flex; flex-wrap:wrap; justify-content:center; gap:25px; padding:80px 20px;
+    }
+    .card {
+      width:250px; height:250px; border-radius:12px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.2);
+      perspective:1200px; cursor:pointer; position:relative; transform-style:preserve-3d; transition: transform 0.5s ease, box-shadow 0.3s;
+    }
+    .card:hover {transform:rotateY(180deg) scale(1.05); box-shadow:0 10px 25px rgba(0,0,0,0.3);}
+    .card-front, .card-back {
+      position:absolute; width:100%; height:100%; backface-visibility:hidden; border-radius:12px;
+      display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:center; font-weight:600; color:#fff; padding:15px; box-sizing:border-box;
+    }
+    .card-back {transform:rotateY(180deg); background:#333; font-size:0.85rem; line-height:1.3; overflow-y:auto;}
+    .card-front img {max-width:90%; max-height:70%; border-radius:8px; margin-bottom:10px; object-fit:cover;}
+
+    .card-industrial1 .card-front {background:#4B4B4B;} .card-industrial1 .card-back {background:#2A2A2A;}
+    .card-industrial2 .card-front {background:#5A5AFF;} .card-industrial2 .card-back {background:#2A2AFF;}
+    .card-industrial3 .card-front {background:#33C1FF;} .card-industrial3 .card-back {background:#007BFF;}
+    .card-industrial4 .card-front {background:#FF7B00;} .card-industrial4 .card-back {background:#FF4500;}
+    .card-industrial5 .card-front {background:#00C853;} .card-industrial5 .card-back {background:#009624;}
+    .card-industrial6 .card-front {background:#FF4081;} .card-industrial6 .card-back {background:#C51162;}
+
+    .cards-container {
+      margin-top: 60px; /* separa las cards del hero */
+    }
+
+    .hero {
+      margin-bottom: 60px;
+    }
+
+
+
+    /* ====== SECCIÓN PROVEEDORES Y COMPRADORES ====== */
+    .beneficios-section {
+      background: #f4f7fa;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .beneficios-section h2 {
+      font-size: 2.2em;
+      color: #003366;
+      margin-bottom: 10px;
+    }
+
+    .beneficios-intro {
+      color: #555;
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+      font-size: 1rem;
+    }
+
+    .beneficios-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .beneficio-card {
+      background: #fff;
+      width: 320px;
+      border-radius: 20px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .beneficio-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .beneficio-content {
+      padding: 30px 25px;
+      text-align: left;
+    }
+
+    .beneficio-content h3 {
+      color: #0056b3;
+      margin-bottom: 10px;
+    }
+
+    .beneficio-content p {
+      color: #444;
+      font-size: 0.95em;
+      margin-bottom: 20px;
+    }
+
+    .beneficio-content ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 25px;
+    }
+
+    .beneficio-content ul li {
+      padding: 6px 0;
+      color: #333;
+      position: relative;
+    }
+
+    .beneficio-content ul li::before {
+      content: "✔️";
+      margin-right: 8px;
+      color: #1a73e8;
+    }
+
+    .beneficio-content button {
+      background: #1a73e8;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95em;
+      transition: background 0.3s ease;
+    }
+
+    .beneficio-content button:hover {
+      background: #004aad;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .beneficio-card {
+        width: 90%;
+      }
+    }
+
+    /* ====== BLOG ====== */
+    .blog {padding:80px 20px; text-align:center; background:#f8f8f8;}
+    .blog h3 {font-size:2rem; margin-bottom:40px; font-weight:700;}
+    .blog-post {max-width:700px; margin:0 auto 30px; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;}
+    .blog-post:hover {transform:scale(1.02); box-shadow:0 8px 20px rgba(0,0,0,0.2);}
+    .blog-post h4 {margin-bottom:10px; color:#ff7b00;}
+    .blog-post p {font-size:1rem;}
+
+/* ====== PLANES ====== */
+.planes {
+  padding: 80px 20px;
+  text-align: center;
+  background: #f4f4f4;
+}
+.planes h3 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+  /* === Card de cada plan === */
+  .plan {
+    background: #fff;
+    border-radius: 10px;
+    border: 2px solid #007bff;
+    padding: 50px 25px 25px; /* más espacio arriba para el span */
+    margin: 15px;
+    display: inline-block;
+    width: 250px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .plan:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-color: #007bff;
+  }
+  .plan h4 {
+    margin-bottom: 10px;
+    color: #ffb700;
+  }
+  .plan p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  .plan ul {
+    text-align: left;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  .plan button {
+    background: #ff8b00;
+    border: none;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .plan button:hover {
+    background: #25d366;
+  }
+
+  /* === Span (badge) === */
+  .badge {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%); /* centrado horizontal */
+    background: #007bff;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+    /* ====== CTA ====== */
+    .cta-block {background:#ff7b00; color:#fff; text-align:center; padding:60px 20px;}
+    .cta-block h3 {font-size:2rem; margin-bottom:15px; font-weight:700;}
+    .cta-block p {font-size:1.1rem; margin-bottom:25px;}
+    .cta-block button {background:#25d366; color:#fff; border:none; padding:15px 30px; font-size:1rem; border-radius:8px; font-weight:600; cursor:pointer; transition:background 0.3s;}
+    .cta-block button:hover {background:#f4f4f4;}
+
+    /* ====== FOOTER ====== */
+    footer {background:#1f1f1f; color:#fff; padding:50px 30px; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px;}
+    footer h4 {color:#ff7b00; margin-bottom:10px;}
+    footer p, footer a {color:#fff; font-size:0.95rem;}
+    footer a:hover {text-decoration:underline;}
+    .copyright {text-align:center; background:#111; color:#ccc; font-size:0.85rem; padding:12px;}
+
+    /* ====== RESPONSIVE ====== */
+    @media(max-width:1024px){
+      .cards-container, .beneficios-container {gap:15px; justify-content:center;}
+      .card, .beneficio-card, .card-compradores {width:220px; height:220px;}
+    }
+    @media(max-width:768px){
+      header {padding:15px 20px; flex-direction:column; align-items:flex-start;}
+      header h1 {margin-bottom:10px;}
+      nav a {margin:5px 10px;}
+      .hero h2 {font-size:2rem;}
+      .card, .beneficio-card, .card-compradores {width:180px; height:180px;}
+      .plan {width:90%; margin:15px auto;}
+    }
+    @media(max-width:480px){
+      .hero h2 {font-size:1.5rem;}
+      .hero p {font-size:1rem;}
+      .card, .beneficio-card, .card-compradores {width:150px; height:150px;}
+      .plan {width:95%; padding:20px;}
+      .blog-post {padding:15px;}
+    }
+
+ .beneficio-card button,
+.card-compradores-front button {
+  margin-top: 10px;
+  background: #fff;
+  color: #ff7b00;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
+}
+
+.beneficio-card button:hover,
+.card-compradores-front button:hover {
+  background: #ff9800;
+  color: #fff;
+}
+
+/* Barra de búsqueda */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 20px;
+}
+
+.search-bar input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  width: 220px;
+  font-size: 0.95rem;
+}
+
+.search-bar button {
+  background: #ff7b00;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.search-bar button:hover {
+  background: #ff9800;
+}
+
+
+
+/* WhatsApp */
+.whatsapp-btn { position: fixed; bottom:20px; right:20px; background:#25d366; color:#fff; padding:0.75rem 1rem; border-radius:50px; display:flex; align-items:center; gap:0.5rem; font-weight:bold; text-decoration:none; box-shadow:var(--shadow); z-index:1000; }
+
+
+.hero {
+  background-image: url('Fotos Anunciante/industria_automotriz.png');
+  background-size: cover;       /* Ajusta la imagen a todo el contenedor */
+  background-position: center;  /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita repeticiones */
+  color: white;                 /* Asegura contraste con el texto */
+  padding: 100px 20px;          /* Espaciado interno */
+  text-align: center;
+}
+
+
+/* --- Separación entre secciones principales --- */
+.hero {
+  margin-bottom: 100px; /* Espacio entre el hero y las cards */
+}
+
+.cards-container {
+  margin-top: 60px;      /* Evita que se pegue al hero */
+  margin-bottom: 100px;  /* Espacio antes de la sección de beneficios */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+.beneficios-section {
+  margin-top: 100px;     /* Espacio superior */
+  padding: 60px 20px;    /* Espaciado interno */
+  background-color: #f8f8f8; /* Color de fondo opcional para diferenciar */
+  text-align: center;
+}
+
+
+
+
+
+
+
+</style>
+</head>
+
+  <!-- Seccion Header -->
+<body>
+<header>
+  <h1>Promoción & Contacto Industrial</h1>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="empresas.html">Directorio</a>
+    <a href="hub.html">Hub de Networking 🤝</a>
+    <a href="blog_empresas.html">Blog</a>
+    <a href="planes.html">Planes</a>
+    <a href="contacto.html">Contacto</a>
+
+    <!-- Barra de búsqueda en el header -->
+<div class="search-bar">
+  <input type="text" placeholder="Buscar empresas, productos o servicios..." />
+  <button onclick="realizarBusqueda()">Buscar</button>
+</div>
+
+  </nav>
+<a class="cta-header" href="contacto.html">Quiero Anunciarme</a>
+</header>
+
+  <!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h2>Conectamos Empresas, Creamos Leads , Promovemos Negocios </h2>
+    <p>Promoción & Contacto Industrial impulsa la conexión B2B entre empresas del sector industrial mexicano. Busca 🥽 - Conecta 📲 - Compra 🛒 - Proveé 🚚</p>
+    <button onclick="location.href='contacto.html'">Únete al Directorio</button>
+
+  </div>
+
+</section>
+
+
+  <!-- Section Card Container -->
+<section class="cards-container">
+
+  <a href="empresas.html" class="card card-industrial1">
+    <div class="card-front">
+      <img src="Fotos Anunciantes/productos_industriales.jpeg" alt="Industria Metal Mecánica">
+      <p>Industria Metal Mecánica</p>
+    </div>
+    <div class="card-back">
+      <p>Conecta al B2B y encuentra proveedores confiables de maquinaria y herramientas.</p>
+    </div>
+  </a>
+
+  <a href="empresas.html" class="card card-industrial2">
+    <div class="card-front">
+      <img src="Fotos Anunciantes/industria_plastico.png" alt="Industria Plástica">
+      <p>Industria Plástica</p>
+    </div>
+    <div class="card-back">
+      <p>Accede a distribuidores y fabricantes de productos plásticos y empaques.</p>
+    </div>
+  </a>
+
+  <a href="empresas.html" class="card card-industrial3">
+    <div class="card-front">
+      <img src="Fotos Anunciantes/industria_quimica.png" alt="Industria Química">
+      <p>Industria Química</p>
+    </div>
+    <div class="card-back">
+      <p>Contacta proveedores de insumos químicos y soluciones industriales.</p>
+    </div>
+  </a>
+
+  <a href="empresas.html" class="card card-industrial4">
+    <div class="card-front">
+      <img src="Fotos Anunciantes/industria_automotriz.png" alt="Industria Automotriz">
+      <p>Industria Automotriz</p>
+    </div>
+    <div class="card-back">
+      <p>Encuentra fabricantes de autopartes, servicios y distribución B2B.</p>
+    </div>
+  </a>
+
+  <a href="empresas.html" class="card card-industrial5">
+    <div class="card-front">
+      <img src="Fotos Anunciantes/industria_electrica.png" alt="Industria Eléctrica">
+      <p>Industria Eléctrica</p>
+    </div>
+    <div class="card-back">
+      <p>Conecta con proveedores de materiales eléctricos y soluciones B2B.</p>
+    </div>
+  </a>
+
+  <a href="empresas.html" class="card card-industrial6">
+    <div class="card-front">
+      <img src="Fotos Anunciantes/industria_alimentos.png" alt="Industria Alimentaria">
+      <p>Industria Alimentaria</p>
+    </div>
+    <div class="card-back">
+      <p>Contacta productores y distribuidores de alimentos y bebidas industriales.</p>
+    </div>
+  </a>
+  </section>
+
+
+  <!-- Section Blog Industrial -->
+  <section class="blog">
+    <h3>Blog y Noticias</h3>
+    <div class="blog-post">
+      <h4>Tendencias Industriales 2025</h4>
+      <p>Descubre las últimas innovaciones en la industria mexicana y cómo conectarte con las mejores empresas B2B.</p>
+    </div>
+    <div class="blog-post">
+      <h4>Optimiza tu Cadena de Suministro</h4>
+      <p>Aprende cómo compradores y proveedores pueden mejorar la eficiencia y reducir costos en sus operaciones B2B.</p>
+    </div>
+  </section>
+
+
+
+    <!-- Section Proveedores & Compradores -->
+
+  <section class="beneficios-section">
+
+  <h2>Proveedores & Compradores</h2>
+  <p class="beneficios-intro">Conectamos la oferta y la demanda industrial para impulsar negocios B2B en México.</p>
+
+  <div class="beneficios-container">
+    <!-- Tarjeta Proveedores -->
+    <div class="beneficio-card">
+      <div class="beneficio-content">
+        <h3>🔧 Proveedores</h3>
+        <p>Conecta con empresas que buscan tus productos o servicios industriales.</p>
+        <ul>
+          <li>Acceso a clientes B2B</li>
+          <li>Promoción de productos destacados</li>
+          <li>Campañas de marketing digital</li>
+          <li>Reportes de contacto y métricas</li>
+        </ul>
+          <button onclick="window.location.href='hub.html'">Hub de Networking 🤝</button>
+      </div>
+    </div>
+
+    <!-- Tarjeta Compradores -->
+    <div class="beneficio-card">
+      <div class="beneficio-content">
+        <h3>🏭 Compradores</h3>
+        <p>Encuentra proveedores confiables para tus necesidades industriales.</p>
+        <ul>
+          <li>Acceso a proveedores verificados</li>
+          <li>Comparación de productos y servicios</li>
+          <li>Alertas de promociones y novedades</li>
+          <li>Soporte directo con proveedores</li>
+        </ul>
+          <button onclick="window.location.href='hub.html'">Hub de Networking 🤝</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+    <!-- Section Planes -->
+<section class="planes">
+  <h3>Planes Digitales</h3>
+
+  <div class="planes-container">
+
+    <!-- Plan 1: Básico -->
+    <div class="plan plan-basico">
+      <h4>Plan Básico</h4>
+      <p>Ideal para empresas que desean empezar su presencia digital B2B.</p>
+      <ul>
+        <li>Perfil básico en el directorio</li>
+        <li>Acceso a contactos limitados</li>
+        <li>Promoción en redes sociales</li>
+      </ul>
+      <button onclick="window.location.href='contacto.html#basico'">Contratar</button>
+      <span class="badge">Free</span>
+    </div>
+
+    <!-- Plan 2: Intermedio -->
+    <div class="plan plan-intermedio">
+      <h4>Plan Intermedio</h4>
+      <p>Para empresas que quieren aumentar visibilidad y generar leads.</p>
+      <ul>
+        <li>Perfil destacado en el directorio</li>
+        <li>Acceso a contactos ampliados</li>
+        <li>Campañas promocionales personalizadas</li>
+        <li>Soporte vía email</li>
+        <span class="badge">Empieza 2026</span>
+
+      </ul>
+      <button onclick="window.location.href='contacto.html#intermedio'">Contratar</button>
+    </div>
+
+    <!-- Plan 3: Premium -->
+    <div class="plan plan-premium">
+      <h4>Plan Premium</h4>
+      <p>Máxima exposición y oportunidades de negocio para empresas B2B.</p>
+      <ul>
+        <li>Perfil destacado + banner promocional</li>
+        <li>Acceso completo a contactos y oportunidades</li>
+        <li>Campañas digitales segmentadas</li>
+        <li>Soporte prioritario y consultoría B2B</li>
+        <li>Reportes de métricas de desempeño</li>
+      </ul>
+      <button onclick="window.location.href='contacto.html#premium'">Contratar</button>
+      <span class="badge badge-popular">Empieza 2026</span>
+    </div>
+
+    <!-- Plan 4: Corporativo -->
+    <div class="plan plan-corporativo">
+      <h4>Plan Corporativo</h4>
+      <p>Solución integral para grandes empresas que buscan expandir su red industrial.</p>
+      <ul>
+        <li>Perfil corporativo + banners y promociones</li>
+        <li>Acceso exclusivo a contactos VIP</li>
+        <li>Campañas de marketing digital personalizadas</li>
+        <li>Consultoría estratégica B2B</li>
+        <li>Reportes avanzados y análisis de leads</li>
+        <li>Soporte dedicado 24/7</li>
+        <span class="badge">Empieza 2026</span>
+
+      </ul>
+      <button onclick="window.location.href='contacto.html#corporativo'">Contratar</button>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- Section Contacto Pre Footer -->
+
+<section class="cta-block">
+  <h3>¿Listo para impulsar tu negocio?</h3>
+  <p>Únete a Promoción & Contacto Industrial y conecta con proveedores y compradores confiables.</p>
+  <button onclick="window.open('https://wa.me/5214421697170?text=Hola,%20quiero%20unirme%20a%20Promoci%C3%B3n%20%26%20Contacto%20Industrial', '_blank')">
+    Únete por WhatsApp
+  </button>
+</section>
+
+
+    <!-- Section Footer-->
+
+<footer>
+  <div>
+    <h4>Promoción & Contacto Industrial</h4>
+    <p>Conectando empresas B2B de México.</p>
+
+
+  </div>
+  <div>
+    <h4>Enlaces</h4>
+    <a href="#">Inicio</a><br>
+    <a href="#">Directorio</a><br>
+    <a href="#">Blog</a><br>
+    <a href="#">Planes</a>
+  </div>
+  <div>
+    <h4>Contacto</h4>
+    <p>Email: contacto@industrialb2b.com</p>
+    <p>Tel: +52 442 169 7170</p>
+  </div>
+  <div>
+    <h4>Síguenos</h4>
+    <a href="#">Facebook</a><br>
+    <a href="#">LinkedIn</a><br>
+    <a href="#">Instagram</a>
+  </div>
+</footer>
+<div class="copyright">© 2025 Promoción & Contacto Industrial. Todos los derechos reservados.</div>
+
+
+<a href="https://wa.me/5214421697170" class="whatsapp-btn">
+<i class="fab fa-whatsapp"></i> WhatsApp Anúnciate!
+</a>
+
+<script>
+function realizarBusqueda() {
+  const input = document.querySelector('.search-bar input');
+  const query = input.value.trim();
+
+  if (!query) {
+    alert("Por favor escribe algo para buscar.");
+    return;
+  }
+
+  // Abrir una ventana tipo popup
+  const width = 900;
+  const height = 700;
+  const left = (screen.width / 2) - (width / 2);
+  const top = (screen.height / 2) - (height / 2);
+
+  // Abrimos la ventana con la URL de resultados y parámetros
+  window.open(
+    `buscar.html?q=${encodeURIComponent(query)}`,
+    'ResultadosB2B',
+    `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`
+  );
+}
+</script>
+
+
+
+
+
+</body>
+</html>
+

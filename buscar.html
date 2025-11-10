@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resultados de Búsqueda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family:'Poppins', sans-serif;
+      background:#f4f4f4;
+      color:#333;
+      padding:20px;
+    }
+    h3#titulo-busqueda {
+      color:#ff7b00;
+      text-align:center;
+      margin-bottom:30px;
+    }
+    #resultados-busqueda {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+      gap:20px;
+    }
+    .resultado {
+      background:#fff;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .resultado:hover {
+      transform:translateY(-5px);
+      box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    }
+    .resultado h4 { margin-bottom:10px; color:#ff7b00; font-size:1.1rem; }
+    .resultado p { margin:4px 0; font-size:0.9rem; line-height:1.4; }
+    .resultado .contacto { font-weight:600; color:#007BFF; }
+  </style>
+</head>
+<body>
+  <h3 id="titulo-busqueda">Resultados</h3>
+  <div id="resultados-busqueda"></div>
+
+  <!-- Script que ya funciona -->
+  <script src="static/buscar.js"></script>
+</body>
+</html>

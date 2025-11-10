@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hub Industrial Interactivo - Soy Empresa B2B</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root {
+  --primary: #005f73;
+  --accent: #ee9b00;
+  --white: #ffffff;
+  --text: #333333;
+  --shadow: 0 4px 6px rgba(0,0,0,0.1);
+  --transition: all 0.3s ease;
+  --priority-bg: linear-gradient(135deg, #005f73, #0a9396);
+  --standard-bg: #ffffff;
+}
+
+body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f5f5f5; color: var(--text);}
+.header-container { display:flex; align-items:center; justify-content:space-between; padding:1rem; background: var(--primary); color:#fff;}
+.header-container a.logo { font-weight:bold; font-size:1.5rem; color:#fff; text-decoration:none;}
+.nav { list-style:none; display:flex; gap:1rem; }
+.nav li a { color:#fff; text-decoration:none;}
+.nav-toggle { display:none; background:none; border:none; color:#fff; font-size:1.5rem; }
+
+section { padding:2rem; max-width:1200px; margin:auto; }
+h2 { color: var(--primary); margin-bottom:1rem; }
+input { padding:0.5rem; width:100%; max-width:400px; margin-bottom:1rem; border-radius:5px; border:1px solid #ccc; }
+
+.grid { display:grid; gap:1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+.network-card {
+  border-radius:10px;
+  box-shadow: var(--shadow);
+  padding:1.5rem;
+  position: relative;
+  transition: var(--transition);
+}
+
+.network-card.prioridad {
+  background: var(--priority-bg);
+  color: var(--white);
+  border-left: 5px solid var(--accent);
+}
+
+.network-card.estandar {
+  background: var(--standard-bg);
+}
+
+.network-card .badge {
+  position:absolute;
+  top:10px; right:10px;
+  background: var(--accent);
+  color:#fff;
+  font-size:0.8rem;
+  padding:3px 8px;
+  border-radius:15px;
+}
+
+.btn {
+  display:inline-block; padding:0.5rem 1rem; margin-top:0.5rem;
+  border:none; border-radius:5px; cursor:pointer;
+  transition: var(--transition);
+}
+
+.btn-contact {
+  background: var(--accent); color:#fff;
+}
+
+.btn-contact:hover {
+  background:#ca8700;
+}
+
+.btn-disabled {
+  background:#ccc; color:#666; cursor:not-allowed;
+}
+
+/* Modal */
+.modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; }
+.modal-content { background:#fff; padding:2rem; border-radius:10px; max-width:500px; width:90%; }
+.modal-content h3 { margin-top:0; }
+.modal-content input { margin-bottom:1rem; width:100%; }
+.modal-close { float:right; cursor:pointer; color:#333; font-weight:bold; font-size:1.2rem;}
+
+
+
+/* WhatsApp */
+.whatsapp-btn { position: fixed; bottom:20px; right:20px; background:#25d366; color:#fff; padding:0.75rem 1rem; border-radius:50px; display:flex; align-items:center; gap:0.5rem; font-weight:bold; text-decoration:none; box-shadow:var(--shadow); z-index:1000; }
+
+
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <a href="index.html" class="logo">Soy Empresa B2B</a>
+    <span>Hub Industrial</span>
+    <button class="nav-toggle" onclick="document.querySelector('.nav').classList.toggle('active')">☰</button>
+    <ul class="nav">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="empresas.html">Directorio</a></li>
+      <li><a href="hub.html">Hub Industrial</a></li>
+      <li><a href="planes.html">Planes</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<section id="networking">
+  <h2>Networking Industrial</h2>
+  <input type="text" id="search" placeholder="Buscar empresa por nombre o sector">
+  <div id="networking-container" class="grid"></div>
+</section>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal()">×</span>
+    <h3 id="modal-title">Contacto</h3>
+    <form id="contact-form">
+      <input type="text" id="user-name" placeholder="Tu nombre" required>
+      <input type="email" id="user-email" placeholder="Tu correo" required>
+      <input type="hidden" id="empresa-contacto">
+      <button type="submit" class="btn btn-contact">Enviar Solicitud</button>
+    </form>
+  </div>
+</div>
+
+
+<a href="https://wa.me/5214421697170" class="whatsapp-btn">
+<i class="fab fa-whatsapp"></i> WhatsApp Anúnciate!
+</a>
+
+
+<script>
+// ====== Empresas ======
+fetch('static/empresas.json')
+.then(res => res.json())
+.then(data => {
+  const container = document.getElementById('networking-container');
+
+  const renderCards = (list) => {
+    container.innerHTML = '';
+    list.forEach(emp => {
+      const card = document.createElement('div');
+      card.className = `network-card ${emp.prioridad ? 'prioridad' : 'estandar'}`;
+
+      card.innerHTML = `
+        <span class="badge">${emp.prioridad ? 'Prioridad' : 'Estándar'}</span>
+        <h4>${emp.empresa}</h4>
+        <p><b>Tipo:</b> ${emp.tipo}</p>
+        <p><b>Ubicación:</b> ${emp.ubicacion}</p>
+        <button class="btn ${emp.prioridad ? 'btn-contact' : 'btn-disabled'}"
+          ${emp.prioridad ? `onclick="openModal('${emp.empresa}')"` : 'disabled'}>
+          ${emp.prioridad ? 'Contactar' : 'Solo empresas prioridad'}
+        </button>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  renderCards(data);
+
+  // Buscador
+  document.getElementById('search').addEventListener('input', e => {
+    const query = e.target.value.toLowerCase();
+    renderCards(data.filter(emp => emp.empresa.toLowerCase().includes(query) || emp.tipo.toLowerCase().includes(query)));
+  });
+});
+
+// ====== Modal ======
+const modal = document.getElementById('modal');
+const modalTitle = document.getElementById('modal-title');
+const empresaContacto = document.getElementById('empresa-contacto');
+
+function openModal(empresa) {
+  modalTitle.innerText = `Contactar: ${empresa}`;
+  empresaContacto.value = empresa;
+  modal.style.display = 'flex';
+}
+
+function closeModal() {
+  modal.style.display = 'none';
+}
+window.onclick = function(event) {
+  if(event.target === modal) closeModal();
+}
+
+// ====== Envío a Google Sheets ======
+document.getElementById('contact-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  const nombre = document.getElementById('user-name').value;
+  const email = document.getElementById('user-email').value;
+  const empresa = document.getElementById('empresa-contacto').value;
+
+  // URL del Google Apps Script (reemplazar con la tuya)
+  const scriptURL = "https://script.google.com/macros/s/TU_SCRIPT_ID/exec";
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: new URLSearchParams({ nombre, email, empresa, fecha: new Date().toLocaleString() })
+  })
+  .then(response => alert(`Solicitud enviada a ${empresa}!`))
+  .catch(error => alert('Error al enviar: ' + error.message));
+
+  closeModal();
+});
+</script>
+
+</body>
+</html>
