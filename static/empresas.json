@@ -1,0 +1,68 @@
+[
+  {
+    "empresa": "Monet Marketing",
+    "tipo": "Marketing",
+    "categoria": "prioridad",
+    "ubicacion": "Querétaro",
+    "descripcion": "Agencia de marketing y posicionamiento de marca.",
+    "contacto": "contacto@monet.mx",
+    "imagen": "Fotos Anunciantes/monet.jpg",
+    "enlace": "monet.html",
+    "prioridad": true
+  },
+  {
+    "empresa": "Industrias del Norte",
+    "tipo": "Marketing",
+    "categoria": "intermedio",
+    "ubicacion": "Monterrey",
+    "descripcion": "Fabricación de componentes industriales de alta calidad.",
+    "contacto": "ventas@indnorte.com",
+    "imagen": "Fotos Anunciantes/indnorte.jpg",
+    "enlace": "indnorte.html",
+    "prioridad": false
+  },
+  {
+    "empresa": "Empresa Básica Ejemplo",
+    "tipo": "Marketing",
+    "categoria": "intermedio",
+    "ubicacion": "Guadalajara",
+    "descripcion": "Descripción corta de la empresa básica.",
+    "contacto": "contacto@empresa.com",
+    "imagen": "",
+    "enlace": "empresa.html",
+    "prioridad": false
+  },
+  {
+    "empresa": "Espacio Disponible",
+    "tipo": "Marketing",
+    "categoria": "prioridad",
+    "ubicacion": "Querétaro",
+    "descripcion": "Espacio Disponible.",
+    "contacto": "contacto@monet.mx",
+    "imagen": "Fotos Anunciantes/monet.jpg",
+    "enlace": "monet.html",
+    "prioridad": true
+  },
+  {
+    "empresa": "Industrias del Norte",
+    "tipo": "Marketing",
+    "categoria": "prioridad",
+    "ubicacion": "Monterrey",
+    "descripcion": "Fabricación de componentes industriales de alta calidad.",
+    "contacto": "ventas@indnorte.com",
+    "imagen": "Fotos Anunciantes/indnorte.jpg",
+    "enlace": "indnorte.html",
+    "prioridad": true
+  },
+  {
+    "empresa": "Empresa Básica Ejemplo",
+    "tipo": "Marketing",
+    "categoria": "prioridad",
+    "ubicacion": "Guadalajara",
+    "descripcion": "Descripción corta de la empresa básica.",
+    "contacto": "contacto@empresa.com",
+    "imagen": "",
+    "enlace": "empresa.html",
+    "prioridad": true
+  }
+]
