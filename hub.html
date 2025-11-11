@@ -84,13 +84,8 @@ input { padding:0.5rem; width:100%; max-width:400px; margin-bottom:1rem; border-
 .modal-content input { margin-bottom:1rem; width:100%; }
 .modal-close { float:right; cursor:pointer; color:#333; font-weight:bold; font-size:1.2rem;}
 
-
-
 /* WhatsApp */
 .whatsapp-btn { position: fixed; bottom:20px; right:20px; background:#25d366; color:#fff; padding:0.75rem 1rem; border-radius:50px; display:flex; align-items:center; gap:0.5rem; font-weight:bold; text-decoration:none; box-shadow:var(--shadow); z-index:1000; }
-
-
-
 </style>
 </head>
 <body>
@@ -120,7 +115,7 @@ input { padding:0.5rem; width:100%; max-width:400px; margin-bottom:1rem; border-
 <div id="modal" class="modal">
   <div class="modal-content">
     <span class="modal-close" onclick="closeModal()">×</span>
-    <h3 id="modal-title">Contacto</h3>
+    <h3 id="modal-title">Contactar Empresa</h3>
     <form id="contact-form">
       <input type="text" id="user-name" placeholder="Tu nombre" required>
       <input type="email" id="user-email" placeholder="Tu correo" required>
@@ -130,11 +125,9 @@ input { padding:0.5rem; width:100%; max-width:400px; margin-bottom:1rem; border-
   </div>
 </div>
 
-
 <a href="https://wa.me/5214421697170" class="whatsapp-btn">
 <i class="fab fa-whatsapp"></i> WhatsApp Anúnciate!
 </a>
-
 
 <script>
 // ====== Empresas ======
@@ -148,7 +141,6 @@ fetch('static/empresas.json')
     list.forEach(emp => {
       const card = document.createElement('div');
       card.className = `network-card ${emp.prioridad ? 'prioridad' : 'estandar'}`;
-
       card.innerHTML = `
         <span class="badge">${emp.prioridad ? 'Prioridad' : 'Estándar'}</span>
         <h4>${emp.empresa}</h4>
@@ -190,25 +182,30 @@ window.onclick = function(event) {
   if(event.target === modal) closeModal();
 }
 
-// ====== Envío a Google Sheets ======
-document.getElementById('contact-form').addEventListener('submit', function(e){
+
+// ====== Envío de correo (versión MVP sin backend) ======
+document.getElementById('contact-form').addEventListener('submit', function(e) {
   e.preventDefault();
   const nombre = document.getElementById('user-name').value;
   const email = document.getElementById('user-email').value;
   const empresa = document.getElementById('empresa-contacto').value;
 
-  // URL del Google Apps Script (reemplazar con la tuya)
-  const scriptURL = "https://script.google.com/macros/s/TU_SCRIPT_ID/exec";
+  // Genera asunto y cuerpo del mensaje
+  const subject = encodeURIComponent(`Solicitud de contacto - ${empresa}`);
+  const body = encodeURIComponent(
+    `Hola Soy Empresa B2B,\n\n` +
+    `El usuario ${nombre} (${email}) desea contactar con la empresa: ${empresa}.\n\n` +
+    `Por favor, reenvía esta solicitud al proveedor correspondiente.\n\nGracias.`
+  );
 
-  fetch(scriptURL, {
-    method: "POST",
-    body: new URLSearchParams({ nombre, email, empresa, fecha: new Date().toLocaleString() })
-  })
-  .then(response => alert(`Solicitud enviada a ${empresa}!`))
-  .catch(error => alert('Error al enviar: ' + error.message));
+  // Redirige al cliente de correo
+  window.location.href = `mailto:contacto@soyempresab2b.com.mx?subject=${subject}&body=${body}`;
 
+  alert(`Tu solicitud de contacto con ${empresa} se está enviando. Abre tu cliente de correo para completarla.`);
   closeModal();
+  document.getElementById('contact-form').reset();
 });
+
 </script>
 
 </body>
